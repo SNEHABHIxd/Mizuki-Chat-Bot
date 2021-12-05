@@ -3,3 +3,4 @@ tgcrypto
 aiofiles
 aiohttp
 google_trans_new
+requests
