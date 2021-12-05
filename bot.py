@@ -88,4 +88,4 @@ async def start(client, message):
    
   
 
- bot.start
+bot.start
