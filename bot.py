@@ -6,6 +6,7 @@ import aiohttp
 from random import randint
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from google_trans_new import google_translator
+from helpers.filters import command
 
 translator = google_translator()
 
@@ -27,7 +28,7 @@ async def fetch(url):
     return data
 
 
-@bot.on_message(filters.text & ~filters.private & ~filters.edited & ~filters.bot & ~filters.via_bot & ~filters.channel & ~filters.forwarded)
+@bot.on_message(filters.text & ~filters.private & ~filters.edited & ~filters.bot & ~filters.via_bot & ~filters.channel & ~filters.forwarded.command("chatbot"))
 async def mizuki(client, message):
     chat_id = message.chat.id
     if not message.reply_to_message:
