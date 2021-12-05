@@ -87,4 +87,4 @@ async def start(client, message):
        await message.reply("**I'm alive, check my pm to know more about me!**")
    
   
-bot.run()
+
