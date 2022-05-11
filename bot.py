@@ -54,7 +54,6 @@ async def mizuki(client, message):
         except:
             return
     finaltxt = test.replace(" ", "%20")
-    try:
         L = await fetch(f"https://api.affiliateplus.xyz/api/chatbot?message={finaltxt}&botname=Mizuki&ownername=Jason&user=1")
         msg = L["message"]        
     except Exception as e:
@@ -79,14 +78,4 @@ async def start(client, message):
                                         InlineKeyboardButton(
                                             "Dev", url="https://t.me/MizukiUpdatesOfficial"),
                                         InlineKeyboardButton(
-                                            "Repo", url="https://github.com/ImJanindu/Mizuki-Chat-Bot")
-                                    ]]
-                            ),               
-           )
-   else:
 
-       await message.reply("**I'm alive, check my pm to know more about me!**")
-   
-  
-
-bot.run()
