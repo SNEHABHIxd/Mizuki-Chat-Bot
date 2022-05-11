@@ -1,12 +1,11 @@
 import os
 from pyrogram import filters, Client
-from config import Config
+from sample_config import Config
 import aiofiles
 import aiohttp
 from random import randint
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from google_trans_new import google_translator
-
 
 translator = google_translator()
 
@@ -28,7 +27,7 @@ async def fetch(url):
     return data
 
 
-@bot.on_message(filters.text & ~filters.private & ~filters.edited & ~filters.bot & ~filters.via_bot & ~filters.channel & ~filters.forwarded.command("chatbot"))
+@bot.on_message(filters.text & ~filters.private & ~filters.edited & ~filters.bot & ~filters.via_bot & ~filters.channel & ~filters.forwarded)
 async def mizuki(client, message):
     chat_id = message.chat.id
     if not message.reply_to_message:
@@ -54,6 +53,7 @@ async def mizuki(client, message):
         except:
             return
     finaltxt = test.replace(" ", "%20")
+    try:
         L = await fetch(f"https://api.affiliateplus.xyz/api/chatbot?message={finaltxt}&botname=Mizuki&ownername=Jason&user=1")
         msg = L["message"]        
     except Exception as e:
@@ -78,4 +78,13 @@ async def start(client, message):
                                         InlineKeyboardButton(
                                             "Dev", url="https://t.me/MizukiUpdatesOfficial"),
                                         InlineKeyboardButton(
+                                            "Repo", url="https://github.com/ImJanindu/Mizuki-Chat-Bot")
+                                    ]]
+                            ),               
+           )
+   else:
 
+       await message.reply("**I'm alive, check my pm to know more about me!**")
+   
+  
+bot.run()
