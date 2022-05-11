@@ -6,7 +6,7 @@ import aiohttp
 from random import randint
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from google_trans_new import google_translator
-from helpers.filters import command
+
 
 translator = google_translator()
 
