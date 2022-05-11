@@ -1,6 +1,6 @@
 import os
 from pyrogram import filters, Client
-from sample_config import Config
+from config import Config
 import aiofiles
 import aiohttp
 from random import randint
